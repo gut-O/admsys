@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { FaUser } from 'react-icons/fa';
 
 const PageContainer = styled.div`
@@ -46,8 +46,17 @@ const InputField = styled.input`
   color: #333;
 `;
 
+const RegisterLink = styled(Link)`
+  margin-top: 10px;
+  padding-bottom: 10px;
+  color: #555;
+  text-decoration: underline;
+  cursor: pointer;
+`;
+
 const ForgotPasswordLink = styled.div`
   margin-top: 10px;
+   padding-bottom: 10px;
   color: #555;
   text-decoration: underline;
   cursor: pointer;
@@ -102,6 +111,7 @@ const Login = () => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
+        <RegisterLink to="/register">Registrar uma conta</RegisterLink>
         <ForgotPasswordLink>Esqueceu sua senha?</ForgotPasswordLink>
         <SubmitButton onClick={handleLogin}>Entrar</SubmitButton>
       </LoginContainer>

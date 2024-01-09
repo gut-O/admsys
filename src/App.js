@@ -1,10 +1,11 @@
 // App.js
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
+import {Route, Routes, Navigate } from 'react-router-dom';
 import Header from './components/Header';
 import Sidebar from './components/Sidebar';
 import About from './pages/About';
 import Home from './pages/Home';
+import Register from './pages/Register';
 import Login from './pages/Login'; // Importe a página de login
 import GlobalStyle from './styles/GlobalStyle';
 
@@ -13,7 +14,6 @@ const App = () => {
   const isAuthenticated = false;
 
   return (
-    <Router>
       <div>
         <GlobalStyle />
         <div style={{ display: 'flex' }}>
@@ -31,12 +31,13 @@ const App = () => {
           ) : (
             <Routes>
               <Route path="/" element={<Login />} />
+              <Route path="/register" element={<Register />} />
               <Route path="*" element={<Navigate to="/" />} />
             </Routes>
           )}
         </div>
       </div>
-    </Router>
+
   );
 };
 

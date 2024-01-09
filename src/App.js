@@ -6,7 +6,8 @@ import Sidebar from './components/Sidebar';
 import About from './pages/About';
 import Home from './pages/Home';
 import Register from './pages/Register';
-import Login from './pages/Login'; // Importe a página de login
+import PasswordRecovery from './pages/PasswordRecovery';
+import Login from './pages/Login';
 import GlobalStyle from './styles/GlobalStyle';
 
 const App = () => {
@@ -32,6 +33,7 @@ const App = () => {
             <Routes>
               <Route path="/" element={<Login />} />
               <Route path="/register" element={<Register />} />
+              <Route path="/passwordrecovery" element={<PasswordRecovery />} />
               <Route path="*" element={<Navigate to="/" />} />
             </Routes>
           )}

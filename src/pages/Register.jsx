@@ -81,7 +81,6 @@ const Register = () => {
     // Lógica de registro usando as informações em 'registration'
     console.log('Registrando usuário:', registration);
     // Redirecione para a página principal após o registro bem-sucedido
-    // ...
 
     // Limpe o estado de registro após o registro bem-sucedido
     dispatch({ type: 'RESET_REGISTRATION' });

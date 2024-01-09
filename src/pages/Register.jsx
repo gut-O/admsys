@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { FaUser } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 const PageContainer = styled.div`
   background: linear-gradient(135deg, #ff6b6b, #5a81f7);
@@ -68,6 +69,7 @@ const SubmitButton = styled.button`
 const Register = () => {
   const dispatch = useDispatch();
   const registration = useSelector((state) => state.registration);
+  const navigate = useNavigate(); 
 
   const handleInputChange = (field, value) => {
     dispatch({
@@ -77,14 +79,29 @@ const Register = () => {
     });
   };
 
-  const handleRegister = () => {
-    // Lógica de registro usando as informações em 'registration'
-    console.log('Registrando usuário:', registration);
-    // Redirecione para a página principal após o registro bem-sucedido
+  const handleRegister = async () => {
+    try {
+      const response = await fetch('http://localhost:3001/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(registration), // Envie os dados do registro no corpo da solicitação
+      });
 
-    // Limpe o estado de registro após o registro bem-sucedido
-    dispatch({ type: 'RESET_REGISTRATION' });
+      if (response.ok) {
+        // Registro bem-sucedido
+        console.log('Registro bem-sucedido!');
+        navigate('/login');
+      } else {
+        // Registro falhou
+        console.log('Registro falhou');
+      }
+    } catch (error) {
+      console.error('Erro ao fazer a requisição:', error);
+    }
   };
+
 
   return (
     <PageContainer>

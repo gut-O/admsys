@@ -13,7 +13,8 @@ import {
   LinkContainer,
 } from '../styles/loginStyles';
 
-const PasswordRecovery = () => {
+const PasswordRecovery = async () => {
+  tr
   const [email, setEmail] = useState('');
 
   const handleRecovery = () => {

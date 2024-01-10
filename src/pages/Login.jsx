@@ -19,13 +19,9 @@ const Login = () => {
   const navigate = useNavigate();
 
   const handleLogin = () => {
-    // Lógica de autenticação (pode ser uma chamada a API, etc.)
-    // Exemplo simples: verificar se username e password são válidos
     if (username === 'usuario' && password === 'senha') {
-      // Autenticação bem-sucedida, redirecione para a página principal
       navigate('/');
     } else {
-      // Autenticação falhou, pode exibir uma mensagem de erro
       console.log('Autenticação falhou');
     }
   };

@@ -38,14 +38,11 @@ const Register = () => {
 
       if (response.ok) {
         // Registro bem-sucedido
-        console.log('Registro bem-sucedido!');
         navigate('/login');
       } else {
         // Registro falhou
-        console.log('Registro falhou');
       }
     } catch (error) {
-      console.error('Erro ao fazer a requisição:', error);
     }
   };
 
